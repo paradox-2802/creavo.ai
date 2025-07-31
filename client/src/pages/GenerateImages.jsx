@@ -79,9 +79,10 @@ const GenerateImage = () => {
               key={index}
               onClick={() => setSelectedStyle(item)}
               className={`text-xs px-4 py-1 border rounded-full cursor-pointer transition-all 
-                ${selectedStyle === item
-                  ? "bg-green-50 text-green-700"
-                  : "text-gray-600 border-gray-300"
+                ${
+                  selectedStyle === item
+                    ? "bg-green-50 text-green-700"
+                    : "text-gray-600 border-gray-300"
                 }`}
             >
               {item}
@@ -90,14 +91,14 @@ const GenerateImage = () => {
         </div>
 
         <div className="my-6 flex items-center gap-2">
-          <label className="relative inline-block w-9 h-5 cursor-pointer">
+          <label className="relative w-9 h-5 inline-block cursor-pointer">
             <input
               type="checkbox"
               className="sr-only peer"
               onChange={(e) => setPublish(e.target.checked)}
               checked={publish}
             />
-            <div className="w-full h-full bg-slate-300 rounded-full peer-checked:bg-green-500 transition-colors duration-300"></div>
+            <div className="absolute inset-0 bg-slate-300 rounded-full peer-checked:bg-green-500 transition-colors duration-300"></div>
             <div className="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-transform duration-300 peer-checked:translate-x-4"></div>
           </label>
           <p className="text-sm">Make this image Public</p>
