@@ -21,12 +21,12 @@ const Sidebar = ({ sidebar, setSidebar }) => {
 
   return (
     <div
-      className={`w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute top-14 bottom-0 ${
+      className={`w-60 bg-white border-r border-gray-200 flex flex-col justify-between items-center max-sm:absolute z-50 top-14 bottom-0 ${
         sidebar ? "translate-x-0" : "max-sm:-translate-x-full"
       } transition-all duration-300 ease-in-out`}
     >
       <div className="my-7 w-full">
-              <img className="w-13 rounded-full mx-auto" src={user.imageUrl} alt="User-avatar"></img>
+        <img className="w-12 rounded-full mx-auto" src={user.imageUrl} alt="User-avatar"></img>
         <h1 className="mt-1 text-center">{user.fullName}</h1>
         <div className="px-6 mt-5 text-sm text-gray-600 font-medium">
           {navItems.map(({ to, label, Icon }) => (
@@ -50,7 +50,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
           <img src={user.imageUrl} className='w-8 rounded-full' alt="" />
           <div>
             <h1 className="text-sm font medium">{user.fullName}</h1>
-            <p className="text-xs text-grey-600">
+            <p className="text-xs text-gray-600">
               <Protect plan="premium" fallback="Free">Premium</Protect>
             </p>
           </div>
