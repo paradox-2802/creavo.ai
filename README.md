@@ -60,9 +60,9 @@ Upload your resume and receive an AI-generated analysis and feedback.
 
 ---
 
-## 📸 Screenshots / Demo
+## 📸 Demo
 
-
+(https://creavo-ai.vercel.app/)
 
 ---
 
