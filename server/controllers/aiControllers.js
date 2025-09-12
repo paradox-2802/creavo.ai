@@ -234,7 +234,7 @@ export const removeObject = async (req, res) => {
     const stream = fs.createReadStream(image.path);
 
     const response = await a4fClient.images.edit({
-      model: "provider-6/black-forest-labs-flux-1-kontext-max",
+      model: "provider-4/imagen-4",
       image: stream,
       prompt: `Remove the ${object} from the image`,
       response_format: "b64_json",
