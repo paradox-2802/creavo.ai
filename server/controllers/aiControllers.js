@@ -30,26 +30,26 @@ export const generateArticle = async (req, res) => {
       });
     }
 
-    const response = await openai.chat.completions.create({
-      model: "gemini-2.0-flash",
-      messages: [
-        {
-          role: "user",
-          content: `Generate an article about ${prompt}`,
-        },
-      ],
-      temperature: 0.7,
-      max_tokens: length,
-    });
-
-    // const response = await a4fClient.chat.completions.create({
-    //   model: "provider-6/gpt-4.1",
+    // const response = await openai.chat.completions.create({
+    //   model: "gemini-2.0-flash",
     //   messages: [
-    //     { role: "user", content: `Generate an article about ${prompt}` },
+    //     {
+    //       role: "user",
+    //       content: `Generate an article about ${prompt}`,
+    //     },
     //   ],
     //   temperature: 0.7,
     //   max_tokens: length,
     // });
+
+    const response = await a4fClient.chat.completions.create({
+      model: "provider-3/gpt-4o-mini",
+      messages: [
+        { role: "user", content: `Generate an article about ${prompt}` },
+      ],
+      temperature: 0.7,
+      max_tokens: length,
+    });
 
     const content = response.choices[0].message.content;
 
