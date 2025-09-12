@@ -220,7 +220,7 @@ export const removeImageBackground = async (req, res) => {
 export const removeObject = async (req, res) => {
   try {
     const { userId } = req.auth();
-    const image = req.file;
+    const { image } = req.file;
     const { object } = req.body;
     const plan = req.plan;
 
@@ -231,24 +231,31 @@ export const removeObject = async (req, res) => {
       });
     }
 
-    const stream = fs.createReadStream(image.path);
+    const { public_id } = await cloudinary.uploader.upload(image.path);
 
-    const response = await a4fClient.images.edit({
-      model: "provider-4/imagen-4",
-      image: stream,
-      prompt: `Remove the ${object} from the image`,
-      response_format: "b64_json",
+    const imageUrl = cloudinary.url(public_id, {
+      transformation: [{ effect: `gen_remove:${object}` }],
+      resource_type: 'image'
     });
 
-    const base64Image = `data:image/png;base64,${response.data[0].b64_json}`;
-    const { secure_url } = await cloudinary.uploader.upload(base64Image);
+    // const stream = fs.createReadStream(image.path);
+
+    // const response = await a4fClient.images.edit({
+    //   model: "provider-4/imagen-4",
+    //   image: stream,
+    //   prompt: `Remove the ${object} from the image`,
+    //   response_format: "b64_json",
+    // });
+
+    // const base64Image = `data:image/png;base64,${response.data[0].b64_json}`;
+    // const { secure_url } = await cloudinary.uploader.upload(base64Image);
 
     await sql`
     INSERT INTO creations (user_id, prompt, content, type) 
-    VALUES (${userId}, ${`Remove the ${object} from the image`}, ${secure_url}, 'image')
+    VALUES (${userId}, ${`Remove the ${object} from the image`}, ${imageUrl}, 'image')
 `;
 
-    res.json({ success: true, content: secure_url });
+    res.json({ success: true, content: imageUrl });
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });
