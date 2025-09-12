@@ -245,7 +245,6 @@ export const removeObject = async (req, res) => {
     });
 
     const { secure_url } = await cloudinary.uploader.upload(transformedUrl, {
-      folder: "object-removal/results",
       resource_type: "image",
     });
 
