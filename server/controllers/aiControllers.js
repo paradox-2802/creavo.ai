@@ -43,7 +43,7 @@ export const generateArticle = async (req, res) => {
     // });
 
     const response = await a4fClient.chat.completions.create({
-      model: "provider-3/gpt-4o-mini",
+      model: "provider-3/gpt-4.1-nano",
       messages: [
         { role: "user", content: `Generate an article about ${prompt}` },
       ],
@@ -99,7 +99,7 @@ export const generateBlogTitle = async (req, res) => {
 
     
     const response = await a4fClient.chat.completions.create({
-      model: "provider-6/gpt-4.1",
+      model: "provider-3/gpt-4.1-nano",
       messages: [
         {
           role: "user",
