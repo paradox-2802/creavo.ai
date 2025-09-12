@@ -165,7 +165,7 @@ export const generateImage = async (req, res) => {
     // const { secure_url } = await cloudinary.uploader.upload(base64Image);
 
     const response = await a4fClient.images.generate({
-      model: "provider-6/FLUX.1-kontext-max",
+      model: "provider-4/imagen-4",
       prompt: `Generate a ${style} style image of ${prompt}`,
       n: 1,
       size: "1024x1024",
@@ -285,7 +285,7 @@ export const reviewResume = async (req, res) => {
     const prompt = `You are a professional resume reviewer. Analyze the following resume for structure, clarity, formatting, and content. Identify any grammatical issues, inconsistencies, or weak language. Suggest improvements. Resume content: ${pdfData.text}`;
 
     const response = await a4fClient.chat.completions.create({
-      model: "provider-6/gpt-4.1",
+      model: "provider-3/gpt-4.1-nano",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
       max_tokens: 1000,
