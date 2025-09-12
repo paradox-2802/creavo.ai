@@ -272,9 +272,6 @@ export const removeObject = async (req, res) => {
   }
 };
 
-
-
-
 export const reviewResume = async (req, res) => {
   try {
     const { userId } = req.auth();
