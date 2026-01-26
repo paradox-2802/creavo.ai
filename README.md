@@ -1,72 +1,121 @@
 # Creavo.ai 🧠✨
 
-**Creavo.ai** is a modern AI-powered SaaS platform that provides users with creative and productivity tools using the **PERN stack** (PostgreSQL, Express, React, Node.js). Authentication and subscription billing are handled via **Clerk**, and all AI features are powered by the **OpenAI SDK**.
+**Creavo.ai** is a modern, all-in-one AI-powered creative and productivity platform built with the **PERN stack** (PostgreSQL, Express, React, Node.js). It empowers users to generate content, edit images, and analyze resumes using advanced AI models.
+
+## 🚀 Features
+
+### ✍️ Content Generation
+- **Article Generator**: Create full-length, structured articles on any topic with custom length settings.
+- **Blog Title Generator**: Get catchy, SEO-friendly blog titles based on keywords and categories.
+
+### 🎨 Image Tools
+- **AI Image Generator**: Turn text prompts into stunning visuals.
+- **Background Remover**: Instantly remove backgrounds from images with precision.
+- **Object Remover**: Clean up images by removing unwanted objects seamlessly.
+
+### 💼 Career Tools
+- **Resume Analyzer**: Upload your resume to receive detailed feedback and AI-driven improvement suggestions.
+
+### 🌐 Community & Dashboard
+- **Community Feed**: browse and get inspired by creations from other users.
+- **Personal Dashboard**: Manage your generated content and history.
 
 ---
 
-## 🔑 Authentication & Billing
+## 🛠️ Tech Stack
 
-- Secure user authentication (sign up, sign in, session handling)
-- Profile management with Clerk
-- Premium plan access via Clerk's built-in billing system
-- Usage limits for free users
+### Frontend
+- **Framework**: [React](https://react.dev/) (Vite)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **State/Routing**: React Router DOM
+- **Authentication**: [Clerk](https://clerk.com/)
 
----
-
-## ⚙️ AI Features
-
-### 📝 Article Generator  
-Generate complete articles by providing a title and desired word length.
-
-### 📚 Blog Title Generator  
-Get AI-suggested blog titles by providing a keyword and category.
-
-### 🎨 Image Generator  
-Create AI-generated images using descriptive text prompts.
-
-### 🧼 Background Remover  
-Upload an image and remove its background with a single click.
-
-### 🧽 Image Object Remover  
-Upload an image and specify an object to be removed using AI.
-
-### 📄 Resume Analyzer  
-Upload your resume and receive an AI-generated analysis and feedback.
+### Backend
+- **Runtime**: [Node.js](https://nodejs.org/)
+- **Framework**: [Express.js](https://expressjs.com/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/) (via [Neon](https://neon.tech))
+- **File Storage**: [Cloudinary](https://cloudinary.com/)
+- **AI Integration**: [OpenAI SDK](https://platform.openai.com/docs/libraries/node-sdk)
 
 ---
 
-## 🧰 Tech Stack
+## ⚙️ Setup & Installation
 
-| Technology      | Purpose                             |
-|------------------|-------------------------------------|
-| **React**        | Frontend UI                         |
-| **Express.js**   | API server                          |
-| **Node.js**      | Backend runtime                     |
-| **PostgreSQL**   | Database (via [Neon](https://neon.tech)) |
-| **Clerk**        | Auth & subscription billing         |
-| **OpenAI SDK**   | AI functionality                    |
-| **Multer**       | File upload middleware              |
-| **Cloudinary**   | Image storage & transformation      |
+Follow these steps to run the project locally.
 
----
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or yarn
+- PostgreSQL database (or Neon account)
+- Clerk account
+- Cloudinary account
+- OpenAI API key
 
-## ☁️ Cloud Services
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/creavo-ai.git
+cd creavo.ai
+```
 
-- **Vercel** – Frontend and backend deployment  
-- **Clerk** – Authentication & billing management  
-- **Neon** – Serverless PostgreSQL database  
-- **Cloudinary** – Efficient image upload and delivery  
-- **OpenAI SDK** – Language and vision AI models
+### 2. server Setup
+Navigate to the server directory and install dependencies:
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file in the `server` directory with the following variables:
+```env
+PORT=3000
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+OPENAI_API_KEY=your_openai_api_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+DATABASE_URL=your_neon_postgres_connection_string
+```
+
+Start the server:
+```bash
+npm run server
+# or
+npm start
+```
+
+### 3. Client Setup
+Open a new terminal, navigate to the client directory, and install dependencies:
+```bash
+cd client
+npm install
+```
+
+Create a `.env.local` file in the `client` directory:
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+```
+
+Start the React development server:
+```bash
+npm run dev
+```
+
+Visit `http://localhost:5173` in your browser to explore the app.
 
 ---
 
 ## 📸 Demo
 
-(https://creavo-ai.vercel.app/)
+*(https://creavo-ai.vercel.app/)*
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
 ## 👨‍💻 Author
 
-Built with ❤️ by **Sayan Chandra**  
-Feel free to fork, contribute, or get inspired!
+Built with ❤️ by **Sayan Chandra**
