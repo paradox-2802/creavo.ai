@@ -85,30 +85,30 @@ export const generateBlogTitle = async (req, res) => {
       });
     }
 
-    const response = await openai.chat.completions.create({
-      model: "gemini-2.0-flash",
-      messages: [
-        {
-          role: "user",
-          content: `Generate a blog title for the category "${category}" based on: ${prompt}`,
-        },
-      ],
-      temperature: 0.7,
-      max_tokens: 200,
-    });
-
-    
-    // const response = await a4fClient.chat.completions.create({
-    //   model: "provider-1/meta-llama-3.1-8b-instruct",
+    // const response = await openai.chat.completions.create({
+    //   model: "gemini-2.0-flash",
     //   messages: [
     //     {
     //       role: "user",
-    //       content: `Suggest some relevant blog title for the category "${category}" based on the topic : ${prompt}`,
+    //       content: `Generate a blog title for the category "${category}" based on: ${prompt}`,
     //     },
     //   ],
     //   temperature: 0.7,
     //   max_tokens: 200,
     // });
+
+    
+    const response = await a4fClient.chat.completions.create({
+      model: "provider-1/meta-llama-3.1-8b-instruct",
+      messages: [
+        {
+          role: "user",
+          content: `Suggest some relevant blog title for the category "${category}" based on the topic : ${prompt}`,
+        },
+      ],
+      temperature: 0.7,
+      max_tokens: 200,
+    });
 
     const content = response.choices[0].message.content;
 
