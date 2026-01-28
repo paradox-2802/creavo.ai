@@ -43,7 +43,7 @@ export const generateArticle = async (req, res) => {
     // });
 
     const response = await a4fClient.chat.completions.create({
-      model: "provider-1/meta-llama-3.1-8b-instruct",
+      model: "provider-6/llama-3.3-70b-versatile",
       messages: [
         { role: "user", content: `Generate an article about ${prompt}` },
       ],
@@ -99,7 +99,7 @@ export const generateBlogTitle = async (req, res) => {
 
     
     const response = await a4fClient.chat.completions.create({
-      model: "provider-1/meta-llama-3.1-8b-instruct",
+      model: "provider-6/llama-3.3-70b-versatile",
       messages: [
         {
           role: "user",
