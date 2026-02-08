@@ -30,6 +30,7 @@ export const generateArticle = async (req, res) => {
       });
     }
 
+<<<<<<< HEAD
     // Call Hugging Face API for text generation
     const response = await client.chatCompletion({
       model: "meta-llama/Llama-3.2-1B-Instruct",
@@ -37,10 +38,27 @@ export const generateArticle = async (req, res) => {
         {
           role: "user",
           content: `Generate an article about ${prompt}. Length: approximately ${length} words.`,
+=======
+    const response = await openai.chat.completions.create({
+      model: "gemini-2.0-flash",
+      messages: [
+        {
+          role: "user",
+          content: `Generate an article about ${prompt}`,
+>>>>>>> 42f652c4cbe2162d05ac5fa3488ed8a1df927d3c
         },
       ],
       max_tokens: parseInt(length) || 500,
     });
+
+    // const response = await a4fClient.chat.completions.create({
+    //   model: "provider-1/meta-llama-3.1-8b-instruct",
+    //   messages: [
+    //     { role: "user", content: `Generate an article about ${prompt}` },
+    //   ],
+    //   temperature: 0.7,
+    //   max_tokens: length,
+    // });
 
     const content = response.choices[0].message.content;
 
@@ -82,17 +100,35 @@ export const generateBlogTitle = async (req, res) => {
       });
     }
 
+<<<<<<< HEAD
     // Call Hugging Face API for text generation
     const response = await client.chatCompletion({
       model: "meta-llama/Llama-3.2-1B-Instruct",
+=======
+    const response = await openai.chat.completions.create({
+      model: "gemini-2.0-flash",
+>>>>>>> 42f652c4cbe2162d05ac5fa3488ed8a1df927d3c
       messages: [
         {
           role: "user",
-          content: `Suggest some relevant blog title for the category "${category}" based on the topic : ${prompt}`,
+          content: `Generate a blog title for the category "${category}" based on: ${prompt}`,
         },
       ],
       max_tokens: 200,
     });
+
+    
+    // const response = await a4fClient.chat.completions.create({
+    //   model: "provider-1/meta-llama-3.1-8b-instruct",
+    //   messages: [
+    //     {
+    //       role: "user",
+    //       content: `Suggest some relevant blog title for the category "${category}" based on the topic : ${prompt}`,
+    //     },
+    //   ],
+    //   temperature: 0.7,
+    //   max_tokens: 200,
+    // });
 
     const content = response.choices[0].message.content;
 
