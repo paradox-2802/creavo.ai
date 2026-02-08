@@ -28,12 +28,7 @@ aiRouter.post(
   removeImageBackground,
 );
 
-aiRouter.post(
-  "/remove-object",
-  auth,
-  upload.single("image"),
-  removeObject
-);
+aiRouter.post("/remove-object", auth, upload.single("image"), removeObject);
 
 // Document Analysis Routes
 aiRouter.post("/review-resume", auth, upload.single("resume"), reviewResume);

@@ -25,7 +25,7 @@ app.use(requireAuth());
 
 // API Routes
 app.use("/api/ai", aiRouter);
-app.use('/api/user', userRouter);
+app.use("/api/user", userRouter);
 
 // Start Server
 const PORT = process.env.PORT || 3000;

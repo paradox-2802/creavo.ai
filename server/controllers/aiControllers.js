@@ -146,7 +146,7 @@ export const generateImage = async (req, res) => {
     // Convert Blob to Base64
     const arrayBuffer = await imageBlob.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-    const base64Image = `data:image/png;base64,${buffer.toString('base64')}`;
+    const base64Image = `data:image/png;base64,${buffer.toString("base64")}`;
 
     // Upload to Cloudinary
     const { secure_url } = await cloudinary.uploader.upload(base64Image);
