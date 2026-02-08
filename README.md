@@ -35,7 +35,11 @@
 - **Framework**: [Express.js](https://expressjs.com/)
 - **Database**: [PostgreSQL](https://www.postgresql.org/) (via [Neon](https://neon.tech))
 - **File Storage**: [Cloudinary](https://cloudinary.com/)
-- **AI Integration**: [OpenAI SDK](https://platform.openai.com/docs/libraries/node-sdk)
+- **AI Integration**: [Hugging Face Inference](https://huggingface.co/docs/huggingface.js/inference/README)
+
+### AI Models Used (Free & Fast) ⚡
+- **Text Generation**: `meta-llama/Llama-3.2-1B-Instruct`
+- **Image Generation**: `black-forest-labs/FLUX.1-schnell`
 
 ---
 
@@ -49,7 +53,7 @@ Follow these steps to run the project locally.
 - PostgreSQL database (or Neon account)
 - Clerk account
 - Cloudinary account
-- OpenAI API key
+- Hugging Face API Token (Read access)
 
 ### 1. Clone the Repository
 ```bash
@@ -57,7 +61,7 @@ git clone https://github.com/your-username/creavo-ai.git
 cd creavo.ai
 ```
 
-### 2. server Setup
+### 2. Server Setup
 Navigate to the server directory and install dependencies:
 ```bash
 cd server
@@ -69,7 +73,7 @@ Create a `.env` file in the `server` directory with the following variables:
 PORT=3000
 CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
-OPENAI_API_KEY=your_openai_api_key
+HUGGINGFACE_API_KEY=your_huggingface_api_token
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret

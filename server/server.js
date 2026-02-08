@@ -6,21 +6,28 @@ import aiRouter from "./routes/aiRoutes.js";
 import connectCloudinary from "./configs/cloudinary.js";
 import userRouter from "./routes/userRoutes.js";
 
+// Initialize Express app
 const app = express();
 
+// Connect to Cloudinary
 await connectCloudinary();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 
+// Health Check Endpoint
 app.get("/", (req, res) => res.send("Server is Live!"));
 
+// Protected Routes (Require Authentication)
 app.use(requireAuth());
 
+// API Routes
 app.use("/api/ai", aiRouter);
 app.use('/api/user', userRouter);
 
+// Start Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server is running on port", PORT);
